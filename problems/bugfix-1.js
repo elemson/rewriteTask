@@ -21,12 +21,13 @@ function run(ok) {
 
   for (var k in Array(N).fill()) {
     const no = String(k);
+    console.log(no);
     var logs = [];
 
     setTimeout(() => {
       logs.push(no);
-
       allLogs.push(...logs);
+      console.log(logs);
       doneCount++;
       if (doneCount == N) {
         ok(allLogs);

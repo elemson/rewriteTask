@@ -21,6 +21,10 @@ ok(allLogs); } }, 10)
 
 ```
 
+### Alternative solution to the bugfix problem:
+
+The problem has to do with scoping.
+
 ### Rewrite:
 
 - There are a number of problems with the rewrite-1 file:

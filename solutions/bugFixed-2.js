@@ -19,7 +19,7 @@ function run(ok) {
   const allLogs = [];
   let doneCount = 0;
 
-  for (const k in Array(N).fill()) {
+  for (var k in Array(N).fill()) {
     const no = String(k);
     const logs = [];
 
