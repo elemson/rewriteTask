@@ -17,7 +17,7 @@ const N = 5;
 
 function run(ok) {
   var allLogs = [];
-  var doneCount = 0;
+  let doneCount = 0;
 
   for (var k in Array(N).fill()) {
     const no = String(k);

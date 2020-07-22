@@ -16,16 +16,15 @@
 const N = 5;
 
 function run(ok) {
-  const allLogs = [];
+  let allLogs = [];
   let doneCount = 0;
 
   for (var k in Array(N).fill()) {
     const no = String(k);
-    const logs = [];
+    let logs = [];
 
     setTimeout(() => {
       logs.push(no);
-
       allLogs.push(...logs);
       doneCount++;
       if (doneCount == N) {

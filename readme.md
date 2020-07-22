@@ -23,7 +23,7 @@ ok(allLogs); } }, 10)
 
 ### Alternative solution to the bugfix problem:
 
-The problem has to do with scoping.
+Alternatively, there is problem with the scoping. Var is a function scope that exists outside the for-loop, so array pushed to it after every iteration are retained. Therefore, returning total values of the array. However, using let preserves the variable in the loop, and for every loop, it only returns the next iteration.
 
 ### Rewrite:
 
