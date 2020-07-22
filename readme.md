@@ -1,13 +1,12 @@
 ### The bugFixed problem:
 
-````setTimeout(() =>
+````
+setTimeout(() =>
 { logs.push(no);
  allLogs.push(...logs);
  doneCount++;
   if (doneCount == N) { ok(allLogs);
   } }, 10)```
-
-`allLogs.push(...logs)` was out of the conditonal state, so it loops before the condition is met. Hence iterates undesired result.
 
 Hence:
 ```setTimeout(() => { logs.push(no);
