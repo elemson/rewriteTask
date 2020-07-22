@@ -9,6 +9,8 @@ setTimeout(() =>
   } }, 10)
 ```
 
+This code `allLogs.push(...logs)` is out of the conditonal statement, so executes outside the condition and therefore returns undesired result.
+
 Hence:
 
 ```
