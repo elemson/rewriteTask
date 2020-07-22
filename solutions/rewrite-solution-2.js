@@ -30,31 +30,39 @@ class Thing {
 /**
  * @returns {Promise<Array<Thing>>}
  */
-function getStuffASync() {}
 
-var spag = async function spaghetti() {
+async function getStuffASync() {}
+
+async function rewrite() {
   var context = this;
 
   try {
     const stuff = await getStuffASync();
-    return Promise.all(stuff, one(thing, context));
+    await promise(context, thing);
   } catch (error) {
-    console.log(error);
+    console.error(error, "thing %s failed to process");
   }
-};
+}
 
-const one = async (context, thing) => {
+//Promise function
+const promise = async (stuff, thing) => {
   context.init(thing);
-  try {
-    try {
-      const data = await thing.generateData();
+  await thing.generateData(
+    (error,
+    (data) => {
+      if (error) {
+        throw new Error("cannot generate data");
+      }
       return context.bind(thing, data);
-    } catch (error) {
-      thing.transferDataLoosely(error);
+    })
+  );
+
+  // this is meant to run separately after generateData is done
+  await thing.transferDataLoosely((error_1) => {
+    if (error_1) {
+      throw new Error("cannot transferData loosely data");
     }
-  } catch (error) {
-    console.error(error, "thing %s failed to process", thing.id);
-  }
+  });
 };
 
-spag();
+rewrite();
