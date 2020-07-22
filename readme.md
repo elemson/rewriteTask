@@ -1,6 +1,7 @@
 ### The bugFixed problem:
 
-```setTimeout(() =>
+```
+setTimeout(() =>
 { logs.push(no);
  allLogs.push(...logs);
  doneCount++;
@@ -10,10 +11,12 @@
 
 Hence:
 
-```setTimeout(() => { logs.push(no);
+```
+setTimeout(() => { logs.push(no);
 doneCount++;
 if (doneCount == N) { allLogs.push(...logs);
 ok(allLogs); } }, 10)
+
 ```
 
 ### Rewrite:
